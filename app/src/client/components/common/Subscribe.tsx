@@ -67,7 +67,7 @@ export default function Subscribe() {
         <input
           ref={inputEl}
           aria-label="Email for newsletter"
-          placeholder="tim@apple.com"
+          placeholder="anatoly@solana.com"
           type="email"
           autoComplete="email"
           required

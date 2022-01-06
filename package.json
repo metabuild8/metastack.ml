@@ -1,4 +1,10 @@
 {
+  "name": "metastack.ml",
+  "author": "Azat Hafizov",
+  "description": "My personal blog on Solana about everything Metaverse-related built with Rust, Anchor, Next.js, Prisma and Tailwind.",
+  "homepage": "https://metastack.ml",
+  "repository": "github:metabuild8/metastack.ml",
+  "version": "0.1.0",
   "private": true,
   "license": "MIT",
   "scripts": {

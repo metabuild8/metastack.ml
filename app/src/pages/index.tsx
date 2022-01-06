@@ -26,12 +26,15 @@ export default function Home() {
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-3 text-black dark:text-white">
               Azat Hafizov
             </h1>
-            <h2 className="text-slate-600 dark:text-slate-400 mb-16">
-              Writing about how anyone can use the Metaverse to build his own
-              meta-stack of knowledge, systems thinking approach and
-              technologies to collaborate with other humans and machines for
-              building the projects of tomorrow.
+            <h2 className="text-gray-600 dark:text-gray-400 mb-4">
+              Chief Technical Officer at{" "}
+              <span className="font-semibold">Hyred</span>
             </h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-16">
+              Writing about how anyone can use the Metaverse to build a personal
+              metacognition toolbox to collaborate with machines and other
+              humans in the creator economy market.
+            </p>
           </div>
           <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
             <Image
