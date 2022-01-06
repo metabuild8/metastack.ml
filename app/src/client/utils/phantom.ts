@@ -4,7 +4,7 @@ export class PhantomWallet {
   constructor() {
     if (!window["solana"]?.isConnected)
       throw new Error("Connect to Phantom first");
-    return this.publicKey;
+    // return this.publicKey;
   }
 
   async signTransaction(tx: Transaction): Promise<Transaction> {
