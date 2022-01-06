@@ -1,0 +1,21 @@
+---
+title: "Automatic push"
+description: "Simple macro function for automatic commit and push"
+logo: "git.png"
+---
+
+### Initial setup
+
+```bash
+git config --global alias.auto '! auto() { git commit -am "$1" && git push; }; auto'
+```
+
+### Typical usage
+
+```bash
+git auto "refactor(lib): added PDAs to lib.rs"
+```
+
+### Notes
+
+You should setup your upstream branch first

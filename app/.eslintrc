@@ -1,0 +1,59 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
+    "prettier",
+    "plugin:import/typescript",
+    "next"
+  ],
+  "plugins": ["@typescript-eslint", "import", "react"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/prop-types": "off",
+    // works with "overrides"
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "zones": [
+          {
+            "target": "./src/pages",
+            "from": "./src/server"
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["next.config.js", "tailwind.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      // Allow imports from src/server/ in src/pages/api
+      "files": ["src/pages/api/**/*"],
+      "rules": {
+        "import/no-restricted-paths": [
+          "error",
+          {
+            "zones": [
+              {
+                "target": "./src/pages/api",
+                "from": "./src/client/"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
