@@ -5,6 +5,14 @@
     {
       "source": "/resume",
       "destination": "/azat-hafizov-2022.pdf"
+    },
+    {
+      "source": "/30",
+      "destination": "https://calendly.com/azat-hafizov/30min"
+    },
+    {
+      "source": "/15",
+      "destination": "https://calendly.com/azat-hafizov/15min"
     }
   ]
 }
