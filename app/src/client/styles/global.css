@@ -60,6 +60,10 @@ html {
   @apply transition-all;
 }
 
+.prose > p:first-of-type {
+  @apply first-letter:text-5xl first-letter:font-bold first-letter:text-slate-900 first-letter:mr-3 first-letter:float-left;
+}
+
 .prose .anchor:after {
   @apply text-slate-300 dark:text-slate-700;
   content: "#";
