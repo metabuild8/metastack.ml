@@ -27,6 +27,11 @@ export default function Footer() {
               Projects
             </a>
           </Link>
+          <Link href="/resume" passHref>
+            <a className="text-slate-500 hover:text-slate-600 transition">
+              Resume
+            </a>
+          </Link>
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://twitter.com/metabuild8">
