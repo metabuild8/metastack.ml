@@ -1,6 +1,5 @@
 import Container from "@client/components/common/Container";
 import { cn } from "@client/utils";
-import Link from "next/link";
 
 export default function Projects() {
   return (
