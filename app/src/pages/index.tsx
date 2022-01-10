@@ -30,7 +30,7 @@ export default function Home() {
             the creator economy market.
           </p>
         </div>
-        <div className="w-[120px] sm:w-[176px] mb-8 sm:mb-0 mr-auto">
+        <div className="relative w-[120px] sm:w-[176px] mb-8 sm:mb-0 mr-auto pointer-events-none">
           <span className="w-[120px] h-[120px] sm:w-[176px] sm:h-[176px] block rounded-full overflow-hidden">
             <Image
               alt="Azat Hafizov"
@@ -42,14 +42,22 @@ export default function Home() {
               placeholder="blur"
             />
           </span>
+          <span
+            className={cn(
+              "absolute bottom-0 right-0 px-1.5 py-0.5 text-xs rounded-md text-white bg-emerald-400",
+              "sm:px-2 sm:py-0.5 sm:text-sm dark:bg-emerald-600"
+            )}
+          >
+            online
+          </span>
         </div>
       </div>
-      <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+      <h3 className="font-bold text-2xl md:text-3xl tracking-tight mb-6 text-black dark:text-white">
         Featured Posts
       </h3>
       <div className="w-full flex flex-col divide-y divide-slate-200 dark:divide-slate-700">
         <BlogPostCard
-          date="Dec 21"
+          date="Dec 21, 2021"
           title="AOL for Metaverse"
           slug="aol-for-metaverse"
         />
@@ -65,7 +73,7 @@ export default function Home() {
           <ArrowRightIcon className="w-5 h-5 text-slate-400" />
         </a>
       </Link>
-      <span className="h-16" />
+      <span className="block h-16" />
       <Subscribe />
     </Container>
   );
