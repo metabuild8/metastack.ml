@@ -60,7 +60,7 @@ html {
   @apply transition-all;
 }
 
-.prose > p:first-of-type {
+article .prose > p:first-of-type {
   @apply first-letter:text-5xl first-letter:font-bold first-letter:text-slate-900 first-letter:mr-3 first-letter:float-left;
 }
 

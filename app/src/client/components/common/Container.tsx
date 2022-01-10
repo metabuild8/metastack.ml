@@ -49,7 +49,7 @@ export default function Container(props) {
   };
 
   return (
-    <div className="">
+    <>
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -111,13 +111,13 @@ export default function Container(props) {
       <main
         id="skip"
         className={cn(
-          "flex flex-col justify-center max-w-2xl mx-auto mb-16 px-8",
+          "w-full flex flex-col justify-center max-w-2xl mx-auto mb-16 px-8",
           "md:block md:p-0"
         )}
       >
         {children}
         <Footer />
       </main>
-    </div>
+    </>
   );
 }
