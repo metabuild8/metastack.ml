@@ -1,13 +1,12 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import NextLink from "next/link";
 import cn from "classnames";
 
 import Footer from "@client/components/common/Footer";
 import MobileMenu from "@client/components/common/MobileMenu";
-import { MoonIcon, SunIcon } from "@heroicons/react/outline";
+import ModalDialog from "@client/components/common/ModalDialog";
+import { useEffect, useState } from "react";
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -31,11 +30,13 @@ function NavItem({ href, text }) {
 }
 
 export default function Container(props) {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isPhantomInstalled, setPhantom] = useState(false);
+  useEffect(() => {
+    if (window["solana"]?.["isPhantom"]) {
+      setPhantom(true);
+    }
+  }, []);
 
   const router = useRouter();
   const { children, ...customMeta } = props;
@@ -93,18 +94,14 @@ export default function Container(props) {
             <NavItem href="/tweets" text="Tweets" />
           </div>
           <button
-            aria-label="Toggle Dark Mode"
             type="button"
-            className="w-9 h-9 bg-slate-200 rounded-lg dark:bg-slate-600 flex items-center justify-center  hover:ring-2 ring-slate-300  transition-all"
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
+            aria-label="Connect Phantom Wallet"
+            className="px-3 py-2 bg-slate-200 rounded-lg dark:bg-slate-600 flex items-center justify-center hover:ring-2 ring-slate-300 transition-all"
+            onClick={() => setIsOpenModal(true)}
           >
-            {mounted && resolvedTheme === "dark" ? (
-              <SunIcon className="w-5 h-5 text-slate-800 dark:text-slate-200" />
-            ) : (
-              <MoonIcon className="w-5 h-5 text-slate-800 dark:text-slate-200" />
-            )}
+            <span className="text-sm">
+              {isPhantomInstalled ? "Connect Wallet" : "Connect Wallet"}
+            </span>
           </button>
         </nav>
       </div>
@@ -118,6 +115,7 @@ export default function Container(props) {
         {children}
         <Footer />
       </main>
+      <ModalDialog {...{ isOpenModal, setIsOpenModal }} />
     </>
   );
 }
