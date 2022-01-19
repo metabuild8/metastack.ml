@@ -83,7 +83,7 @@ export default function ModalDialog(props: any) {
                 </p>
                 <div
                   className={cn(
-                    "mt-4 border rounded-lg divide-y overflow-hidden cursor-pointer",
+                    "mt-8 border rounded-lg divide-y overflow-hidden cursor-pointer",
                     "dark:border-slate-500 dark:divide-slate-500"
                   )}
                 >
