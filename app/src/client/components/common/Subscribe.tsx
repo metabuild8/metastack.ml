@@ -1,13 +1,9 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
-// import useSWR from "swr";
+import useSWR from "swr";
 
-// import fetcher from "@server/lib/fetcher";
-import {
-  Form,
-  FormState,
-  // Subscribers
-} from "@client/utils/types";
+import fetcher from "@client/utils/fetcher";
+import { Form, FormState, Subscribers } from "@client/utils/types";
 import SuccessMessage from "@client/components/SuccessMessage";
 import ErrorMessage from "@client/components/common/ErrorMessage";
 import LoadingSpinner from "@client/components/common/LoadingSpinner";
@@ -16,8 +12,8 @@ import { cn } from "@client/utils";
 export default function Subscribe() {
   const [form, setForm] = useState<FormState>({ state: Form.Initial });
   const inputEl = useRef(null);
-  // const { data } = useSWR<Subscribers>("/api/subscribers", fetcher);
-  const subscriberCount = 1; // new Number(data?.count);
+  const { data } = useSWR<Subscribers>("/api/subscribers", fetcher);
+  const subscriberCount = new Number(data?.count);
 
   const subscribe = async (e) => {
     e.preventDefault();
@@ -95,7 +91,12 @@ export default function Subscribe() {
       ) : (
         <p className="text-sm text-slate-800 dark:text-slate-200">
           {`${
-            subscriberCount > 0 ? subscriberCount.toLocaleString() : "-"
+            subscriberCount > 0
+              ? new Intl.NumberFormat("en-US", {
+                  notation: "compact",
+                  compactDisplay: "short",
+                }).format(subscriberCount.valueOf())
+              : "-"
           } subscribers `}
           &bull;{" "}
           <Link href="/newsletter">
