@@ -15,10 +15,12 @@ export default function BlogPostCard({ date, title, slug }) {
         <div className="w-full py-3 transform-gpu hover:scale-[1.01] transition-transform">
           <div className="flex items-center gap-4">
             <div className="text-indigo-400">
-              {new Intl.NumberFormat("en-US", {
-                notation: "compact",
-                compactDisplay: "short",
-              }).format(views)}{" "}
+              {views
+                ? new Intl.NumberFormat("en-US", {
+                    notation: "compact",
+                    compactDisplay: "short",
+                  }).format(views)
+                : "---"}{" "}
               views
             </div>
             <div className="flex-1 flex items-center gap-2 truncate">
