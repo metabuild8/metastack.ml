@@ -41,9 +41,14 @@ export default function Footer() {
           <ExternalLink href="https://github.com/metabuild8">
             GitHub
           </ExternalLink>
-          <ExternalLink href="https://youtube.com">YouTube</ExternalLink>
+          <ExternalLink href="https://www.youtube.com/channel/UC6uwKI30_VqiPOYRH-pbjPA">
+            YouTube
+          </ExternalLink>
           <ExternalLink href="https://dribbble.com">Dribbble</ExternalLink>
           <ExternalLink href="https://codecanyon.net">CodeCanyon</ExternalLink>
+          <ExternalLink href="https://medium.com/@buildingmetaverse">
+            Medium
+          </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">
           <Link href="/snippets">
