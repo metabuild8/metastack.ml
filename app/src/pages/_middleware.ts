@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 export function middleware() {
   const ContentSecurityPolicy = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.calendly.com;
     child-src *.youtube.com *.google.com *.twitter.com;
-    style-src 'self' 'unsafe-inline' *.googleapis.com;
+    style-src 'self' 'unsafe-inline' *.googleapis.com *.calendly.com;
+    frame-src *.youtube.com calendly.com;
     img-src * blob: data:;
     media-src 'none';
     connect-src *;
