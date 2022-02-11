@@ -20,7 +20,7 @@ export default function BlogPostCard({ date, title, slug }) {
                     notation: "compact",
                     compactDisplay: "short",
                   }).format(views)
-                : "---"}{" "}
+                : "--"}{" "}
               views
             </div>
             <div className="flex-1 flex items-center gap-2 truncate">

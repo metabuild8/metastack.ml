@@ -1,5 +1,6 @@
 import Container from "@client/components/common/Container";
 import { cn } from "@client/utils";
+import CalendlyButton from "@client/components/common/CalendlyButton";
 
 export default function Projects() {
   return (
@@ -10,19 +11,32 @@ export default function Projects() {
       <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
         Projects
       </h1>
+      <div className="my-12 sm:flex justify-between items-center">
+        <p className="mb-4 sm:mb-0">
+          Use Calendly to schedule a quick call if you'd like to learn more
+        </p>
+        <CalendlyButton />
+      </div>
       <div className="prose dark:prose-dark">
-        <p>Interesting projects I've managed to build recently</p>
         <ul>
           <li>
             <div className="mt-6 text-lg font-medium">
-              Hyred.ai &mdash; platform for NFTifying resumes
+              Hyred.ai &mdash; platform for selling resumes as NFTs
             </div>
             <div>
               Marketplace for candidates selling their resumes as NFTs built
               with Polygon, Next.js, Typescript, GraphQL subscriptions,
               Prisma.io, PostgreSQL, Nexus, Codegen, Hardhat, ethers.js,
-              Alchemy, Algolia, AWS Lambda, Terraform.
+              Alchemy, Algolia, AWS Lambda and Terraform.
             </div>
+            <iframe
+              className="w-full aspect-video mt-6 mb-12"
+              src="https://www.youtube.com/embed/1b9aCeIR5rU"
+              title="Hyred.ai - platform for selling resumes as NFTs"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+              allowFullScreen
+            />
           </li>
           <li>
             <div className="mt-6 text-lg font-medium">
@@ -46,28 +60,6 @@ export default function Projects() {
             </div>
           </li>
         </ul>
-      </div>
-      <div className="mt-16 mb-6">
-        Use Calendly to book a meeting and learn more:
-      </div>
-      <div className="flex items-center gap-4 md:gap-8">
-        {["15 min", "30 min", "60 min"].map((e: string) => (
-          <a
-            key={e}
-            href={`https://calendly.com/azat-hafizov/${e.replace(" ", "")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "flex-1 p-4 border-2 rounded-xl border-slate-200 text-center",
-              "cursor-pointer hover:bg-purple-50 hover:border-slate-300",
-              "dark:border-slate-700 dark:bg-slate-800",
-              "dark:hover:bg-indigo-500 dark:hover:border-indigo-400",
-              "transform-gpu transition-colors"
-            )}
-          >
-            {e}
-          </a>
-        ))}
       </div>
     </Container>
   );
