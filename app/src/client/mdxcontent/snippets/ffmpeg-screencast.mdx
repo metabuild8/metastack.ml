@@ -1,0 +1,37 @@
+---
+title: "Screencasting using FFmpeg"
+description: "FFmpeg command to combine desktop and webcam"
+logo: "ffmpeg.png"
+---
+
+First, you need to get a list of your
+[input devices](https://trac.ffmpeg.org/wiki/Capture/Desktop):
+
+```bash
+ffmpeg -f avfoundation -list_devices true -i ""
+```
+
+This will enumerate all the available input devices including screens ready to
+be captured. Then, change lines with scale and overlay according to your needs:
+
+```bash
+ffmpeg -hide_banner \
+  -f avfoundation -thread_queue_size 4096 -r 60 -pix_fmt uyvy422 \
+  -capture_cursor 1 -capture_mouse_clicks 1 -i "3:1" \
+  -f avfoundation -thread_queue_size 4096 -r 30 -pix_fmt uyvy422 -i "2:" \
+  -filter_complex \
+    "[1]trim=end_frame=1, \
+      geq='st(3,pow(X-(W/2),2)+pow(Y-(H/2),2));if(lte(ld(3), \
+      pow(min(W/2,H/2),2)),255,0)':128:128, \
+      loop=-1:1, \
+      setpts=N/FRAME_RATE/TB[webcam]; \
+    [webcam]boxblur=2:1:cr=0:ar=0[webcam]; \
+    [1][webcam]alphamerge[cutout]; \
+    [cutout]scale=300:-1[cutout]; \
+    [0:v][cutout]overlay=W-w+40:H-h-20[v]" \
+    -pix_fmt yuv420p \
+    -c:v libx264 \
+    -preset ultrafast \
+    -map "[v]" -map a:0 -y \
+  output.mp4
+```
